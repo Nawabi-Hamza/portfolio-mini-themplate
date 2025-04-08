@@ -1,6 +1,6 @@
 [
     {
-      "id": "321",
+      "id": "1",
       "name": "Hamza Nawabi",
       "title": "Full Stack Developer",
       "github": "https://github.com/Nawabi-Hamza",
@@ -25,14 +25,14 @@
       }
     },
     {
-      "id": "123",
-      "name": "Another Developer",
+      "id": "2",
+      "name": "Ansarullah",
       "title": "Frontend Developer",
       "github": "https://github.com/example",
       "linkedin": "https://linkedin.com/in/example",
       "email": "example@example.com",
       "cv": "assets/example-cv.pdf",
-      "image": "assets/example.jpg",
+      "image": "assets/profile-images/ansar.png",
       "experience": {
         "fullStackYears": 2,
         "bcsYears": 3,
