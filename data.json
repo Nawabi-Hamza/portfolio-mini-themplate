@@ -1,0 +1,51 @@
+[
+    {
+      "id": "321",
+      "name": "Hamza Nawabi",
+      "title": "Full Stack Developer",
+      "github": "https://github.com/Nawabi-Hamza",
+      "linkedin": "https://www.linkedin.com/in/hamza-nawabi-967b3b277/",
+      "email": "hamza.nawabi119@gmail.com",
+      "cv": "assets/Hamza CV.pdf",
+      "image": "assets/hamza-nawabi.jpg",
+      "experience": {
+        "fullStackYears": 3,
+        "bcsYears": 4,
+        "employers": 4
+      },
+      "projects": [
+        "assets/project-1.png",
+        "assets/project-2.png",
+        "assets/project-3.png",
+        "assets/project-4.png"
+      ],
+      "skills": {
+        "frontend": ["HTML", "CSS", "SASS", "JavaScript", "Responsive Webpage", "React", "Material UI"],
+        "backend": ["Node.js", "Express.js", "APIs", "Database CRUD", "Rest APIs", "Git", "PHP", "MY SQL", "PostgreSQL", "MongoDB", "Web Servers"]
+      }
+    },
+    {
+      "id": "123",
+      "name": "Another Developer",
+      "title": "Frontend Developer",
+      "github": "https://github.com/example",
+      "linkedin": "https://linkedin.com/in/example",
+      "email": "example@example.com",
+      "cv": "assets/example-cv.pdf",
+      "image": "assets/example.jpg",
+      "experience": {
+        "fullStackYears": 2,
+        "bcsYears": 3,
+        "employers": 2
+      },
+      "projects": [
+        "assets/project-1.png",
+        "assets/project-2.png"
+      ],
+      "skills": {
+        "frontend": ["HTML", "CSS", "JavaScript"],
+        "backend": ["Node.js", "MySQL"]
+      }
+    }
+  ]
+  
