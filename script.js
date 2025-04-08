@@ -1,3 +1,55 @@
+async function loadPortfolio() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  if (!id) return;
+
+  const response = await fetch("data.json");
+  const data = await response.json();
+
+  const person = data.find((p) => p.id === id);
+  if (!person) return;
+
+  document.querySelector("h1").textContent = person.name;
+  document.querySelector("h2").textContent = person.title;
+  document.querySelector(".hero-pic img").src = person.image;
+
+  // Social links
+  document.querySelectorAll(".logo-container a")[0].href = person.github;
+  document.querySelectorAll(".logo-container a")[1].href = person.linkedin;
+  document.querySelectorAll(".logo-container a")[2].href = `mailto:${person.email}`;
+
+  // CV + Contact
+  document.querySelector(".cta a").href = person.cv;
+  document.querySelectorAll(".cta a")[1].href = `mailto:${person.email}`;
+
+  // Experience
+  const experienceEls = document.querySelectorAll(".experience h2");
+  experienceEls[0].innerHTML = `<b>${person.experience.fullStackYears}</b><br />Years<br />Full Stack`;
+  experienceEls[1].innerHTML = `<b>${person.experience.bcsYears}</b><br />Years<br />B.C.S`;
+  experienceEls[2].innerHTML = `<b>${person.experience.employers}</b><br />Satisfied<br />Employers`;
+
+  // Projects
+  const portfolioEl = document.getElementById("portfolio");
+  portfolioEl.innerHTML = "";
+  person.projects.forEach((project) => {
+    const div = document.createElement("div");
+    div.className = "wrapper project-wrapper";
+    div.innerHTML = `<a href="#"><img src="${project}" alt="Project" /></a>`;
+    portfolioEl.appendChild(div);
+  });
+
+  // Skills
+  const frontendSkills = document.querySelector(".frontend-skills");
+  frontendSkills.innerHTML = person.skills.frontend.map(skill => `<p>${skill}</p>`).join("");
+
+  const backendSkills = document.querySelector(".backend-skills");
+  backendSkills.innerHTML = person.skills.backend.map(skill => `<p>${skill}</p>`).join("");
+}
+
+loadPortfolio();
+
+
 // Click events for buttons
 const portfolio = document.getElementById("portfolio");
 const portfolioBtn = document.getElementById("portfolio-btn");
@@ -67,57 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-const url = window.location.href
-console.log(url.split("=")[1])
+// const url = window.location.href
+// console.log(url.split("=")[1])
 
 // script.js
-async function loadPortfolio() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id");
 
-  if (!id) return;
-
-  const response = await fetch("data.json");
-  const data = await response.json();
-
-  const person = data.find((p) => p.id === id);
-  if (!person) return;
-
-  document.querySelector("h1").textContent = person.name;
-  document.querySelector("h2").textContent = person.title;
-  document.querySelector(".hero-pic img").src = person.image;
-
-  // Social links
-  document.querySelectorAll(".logo-container a")[0].href = person.github;
-  document.querySelectorAll(".logo-container a")[1].href = person.linkedin;
-  document.querySelectorAll(".logo-container a")[2].href = `mailto:${person.email}`;
-
-  // CV + Contact
-  document.querySelector(".cta a").href = person.cv;
-  document.querySelectorAll(".cta a")[1].href = `mailto:${person.email}`;
-
-  // Experience
-  const experienceEls = document.querySelectorAll(".experience h2");
-  experienceEls[0].innerHTML = `<b>${person.experience.fullStackYears}</b><br />Years<br />Full Stack`;
-  experienceEls[1].innerHTML = `<b>${person.experience.bcsYears}</b><br />Years<br />B.C.S`;
-  experienceEls[2].innerHTML = `<b>${person.experience.employers}</b><br />Satisfied<br />Employers`;
-
-  // Projects
-  const portfolioEl = document.getElementById("portfolio");
-  portfolioEl.innerHTML = "";
-  person.projects.forEach((project) => {
-    const div = document.createElement("div");
-    div.className = "wrapper project-wrapper";
-    div.innerHTML = `<a href="#"><img src="${project}" alt="Project" /></a>`;
-    portfolioEl.appendChild(div);
-  });
-
-  // Skills
-  const frontendSkills = document.querySelector(".frontend-skills");
-  frontendSkills.innerHTML = person.skills.frontend.map(skill => `<p>${skill}</p>`).join("");
-
-  const backendSkills = document.querySelector(".backend-skills");
-  backendSkills.innerHTML = person.skills.backend.map(skill => `<p>${skill}</p>`).join("");
-}
-
-loadPortfolio();
