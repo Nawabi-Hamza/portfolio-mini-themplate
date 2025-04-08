@@ -64,3 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load saved theme from local storage or default to light theme
   loadTheme();
 });
+
+
+
+const url = window.location.href
+console.log(url)
